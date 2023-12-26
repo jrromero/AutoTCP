@@ -4,8 +4,8 @@ _Supplementary material_ (December 27, 2023)
 ## Authors
 - José Raúl Romero (a,b - corresponding author)
 - Aurora Ramírez (a,b)
-- Ángel Fuentes Almoguera (a)
-- Carlos García Martínez (a, b)
+- Ángel Fuentes-Almoguera (a)
+- Carlos García-Martínez (a, b)
 
 (a) Department of Computer Science and Numerical Analysis, University of Córdoba, 14071, Córdoba, Spain
 
