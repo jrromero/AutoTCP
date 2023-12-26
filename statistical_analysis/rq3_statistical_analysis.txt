@@ -1,0 +1,50 @@
+== Kruskal-Wallis test ==
+	Statistics: 5.350688221153848
+	p-value:0.1478469186694815
+	The null hypothesis cannot be rejected
+
+== Wilcoxon test (pairwise comparisons) ==
+	-- RFpair vs. BTgRFpair --
+		Statistics: -1.6492422502470643
+		p-value: 0.0990980154217605
+		The null hypothesis cannot be rejected
+	-- RFpair vs. BTbRFpair --
+		Statistics: -2.25073060033717
+		p-value: 0.024402605411921543
+		The null hypothesis can be rejected
+	-- RFpair vs. AutoTCP --
+		Statistics: -0.44626555006685265
+		p-value: 0.65540543793669
+		The null hypothesis cannot be rejected
+	-- BTgRFpair vs. BTbRFpair --
+		Statistics: -0.5626826500842925
+		p-value: 0.5736510006245363
+		The null hypothesis cannot be rejected
+	-- BTgRFpair vs. AutoTCP --
+		Statistics: 0.8149197001220788
+		p-value: 0.415118275851869
+		The null hypothesis cannot be rejected
+	-- BTbRFpair vs. AutoTCP --
+		Statistics: 1.309692375196198
+		p-value: 0.1902999240389237
+		The null hypothesis cannot be rejected
+
+== Cliff's Delta (pairwise comparisons) ==
+	-- RFpair vs. BTgRFpair --
+		Effect size: small
+		p-value: -0.272
+	-- RFpair vs. BTbRFpair --
+		Effect size: medium
+		p-value: -0.3712
+	-- RFpair vs. AutoTCP --
+		Effect size: negligible
+		p-value: -0.0736
+	-- BTgRFpair vs. BTbRFpair --
+		Effect size: negligible
+		p-value: -0.0928
+	-- BTgRFpair vs. AutoTCP --
+		Effect size: negligible
+		p-value: 0.1344
+	-- BTbRFpair vs. AutoTCP --
+		Effect size: small
+		p-value: 0.216

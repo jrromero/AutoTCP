@@ -1,0 +1,470 @@
+== Kruskal-Wallis test ==
+	Statistics: 0.1034164099318357
+	p-value:0.9999999997205102
+	The null hypothesis cannot be rejected
+
+== Wilcoxon test (pairwise comparisons) ==
+	-- apfd_complete_double_mut vs. apfd_complete_single_mut --
+		Statistics: 0.0
+		p-value: 1.0
+		The null hypothesis cannot be rejected
+	-- apfd_complete_double_mut vs. apfd_reduce_50_100_double_mut --
+		Statistics: -0.048507125007266595
+		p-value: 0.9613120861932752
+		The null hypothesis cannot be rejected
+	-- apfd_complete_double_mut vs. apfd_reduce_75_100_double_mut --
+		Statistics: -0.18432707502761306
+		p-value: 0.8537568750199167
+		The null hypothesis cannot be rejected
+	-- apfd_complete_double_mut vs. apfd_reduce_75_50_double_mut --
+		Statistics: -0.048507125007266595
+		p-value: 0.9613120861932752
+		The null hypothesis cannot be rejected
+	-- apfd_complete_double_mut vs. apfd_reduce_75_75_double_mut --
+		Statistics: 0.0
+		p-value: 1.0
+		The null hypothesis cannot be rejected
+	-- apfd_complete_double_mut vs. auc_complete_double_mut --
+		Statistics: -0.06790997501017323
+		p-value: 0.9458572981765897
+		The null hypothesis cannot be rejected
+	-- apfd_complete_double_mut vs. auc_complete_single_mut --
+		Statistics: 0.048507125007266595
+		p-value: 0.9613120861932752
+		The null hypothesis cannot be rejected
+	-- apfd_complete_double_mut vs. auc_reduce_50_100_double_mut --
+		Statistics: 0.029104275004359956
+		p-value: 0.9767814262832161
+		The null hypothesis cannot be rejected
+	-- apfd_complete_double_mut vs. auc_reduce_75_100_double_mut --
+		Statistics: -0.08731282501307987
+		p-value: 0.9304228600674964
+		The null hypothesis cannot be rejected
+	-- apfd_complete_double_mut vs. auc_reduce_75_50_double_mut --
+		Statistics: -0.09701425001453319
+		p-value: 0.9227150779556011
+		The null hypothesis cannot be rejected
+	-- apfd_complete_double_mut vs. auc_reduce_75_75_double_mut --
+		Statistics: -0.1067156750159865
+		p-value: 0.9150145467572699
+		The null hypothesis cannot be rejected
+	-- apfd_complete_single_mut vs. apfd_reduce_50_100_double_mut --
+		Statistics: -0.048507125007266595
+		p-value: 0.9613120861932752
+		The null hypothesis cannot be rejected
+	-- apfd_complete_single_mut vs. apfd_reduce_75_100_double_mut --
+		Statistics: -0.18432707502761306
+		p-value: 0.8537568750199167
+		The null hypothesis cannot be rejected
+	-- apfd_complete_single_mut vs. apfd_reduce_75_50_double_mut --
+		Statistics: -0.048507125007266595
+		p-value: 0.9613120861932752
+		The null hypothesis cannot be rejected
+	-- apfd_complete_single_mut vs. apfd_reduce_75_75_double_mut --
+		Statistics: -0.05820855000871991
+		p-value: 0.953582510349677
+		The null hypothesis cannot be rejected
+	-- apfd_complete_single_mut vs. auc_complete_double_mut --
+		Statistics: -0.1067156750159865
+		p-value: 0.9150145467572699
+		The null hypothesis cannot be rejected
+	-- apfd_complete_single_mut vs. auc_complete_single_mut --
+		Statistics: 0.03880570000581327
+		p-value: 0.9690453003117911
+		The null hypothesis cannot be rejected
+	-- apfd_complete_single_mut vs. auc_reduce_50_100_double_mut --
+		Statistics: 0.048507125007266595
+		p-value: 0.9613120861932752
+		The null hypothesis cannot be rejected
+	-- apfd_complete_single_mut vs. auc_reduce_75_100_double_mut --
+		Statistics: -0.1067156750159865
+		p-value: 0.9150145467572699
+		The null hypothesis cannot be rejected
+	-- apfd_complete_single_mut vs. auc_reduce_75_50_double_mut --
+		Statistics: -0.09701425001453319
+		p-value: 0.9227150779556011
+		The null hypothesis cannot be rejected
+	-- apfd_complete_single_mut vs. auc_reduce_75_75_double_mut --
+		Statistics: -0.18432707502761306
+		p-value: 0.8537568750199167
+		The null hypothesis cannot be rejected
+	-- apfd_reduce_50_100_double_mut vs. apfd_reduce_75_100_double_mut --
+		Statistics: -0.09701425001453319
+		p-value: 0.9227150779556011
+		The null hypothesis cannot be rejected
+	-- apfd_reduce_50_100_double_mut vs. apfd_reduce_75_50_double_mut --
+		Statistics: 0.0
+		p-value: 1.0
+		The null hypothesis cannot be rejected
+	-- apfd_reduce_50_100_double_mut vs. apfd_reduce_75_75_double_mut --
+		Statistics: 0.048507125007266595
+		p-value: 0.9613120861932752
+		The null hypothesis cannot be rejected
+	-- apfd_reduce_50_100_double_mut vs. auc_complete_double_mut --
+		Statistics: -0.019402850002906636
+		p-value: 0.984519736863829
+		The null hypothesis cannot be rejected
+	-- apfd_reduce_50_100_double_mut vs. auc_complete_single_mut --
+		Statistics: 0.1067156750159865
+		p-value: 0.9150145467572699
+		The null hypothesis cannot be rejected
+	-- apfd_reduce_50_100_double_mut vs. auc_reduce_50_100_double_mut --
+		Statistics: 0.06790997501017323
+		p-value: 0.9458572981765897
+		The null hypothesis cannot be rejected
+	-- apfd_reduce_50_100_double_mut vs. auc_reduce_75_100_double_mut --
+		Statistics: -0.048507125007266595
+		p-value: 0.9613120861932752
+		The null hypothesis cannot be rejected
+	-- apfd_reduce_50_100_double_mut vs. auc_reduce_75_50_double_mut --
+		Statistics: -0.029104275004359956
+		p-value: 0.9767814262832161
+		The null hypothesis cannot be rejected
+	-- apfd_reduce_50_100_double_mut vs. auc_reduce_75_75_double_mut --
+		Statistics: -0.06790997501017323
+		p-value: 0.9458572981765897
+		The null hypothesis cannot be rejected
+	-- apfd_reduce_75_100_double_mut vs. apfd_reduce_75_50_double_mut --
+		Statistics: 0.09701425001453319
+		p-value: 0.9227150779556011
+		The null hypothesis cannot be rejected
+	-- apfd_reduce_75_100_double_mut vs. apfd_reduce_75_75_double_mut --
+		Statistics: 0.1552228000232531
+		p-value: 0.876645674312776
+		The null hypothesis cannot be rejected
+	-- apfd_reduce_75_100_double_mut vs. auc_complete_double_mut --
+		Statistics: 0.048507125007266595
+		p-value: 0.9613120861932752
+		The null hypothesis cannot be rejected
+	-- apfd_reduce_75_100_double_mut vs. auc_complete_single_mut --
+		Statistics: 0.23283420003487965
+		p-value: 0.8158901548607471
+		The null hypothesis cannot be rejected
+	-- apfd_reduce_75_100_double_mut vs. auc_reduce_50_100_double_mut --
+		Statistics: 0.22313277503342632
+		p-value: 0.8234321705298491
+		The null hypothesis cannot be rejected
+	-- apfd_reduce_75_100_double_mut vs. auc_reduce_75_100_double_mut --
+		Statistics: 0.05820855000871991
+		p-value: 0.953582510349677
+		The null hypothesis cannot be rejected
+	-- apfd_reduce_75_100_double_mut vs. auc_reduce_75_50_double_mut --
+		Statistics: 0.0
+		p-value: 1.0
+		The null hypothesis cannot be rejected
+	-- apfd_reduce_75_100_double_mut vs. auc_reduce_75_75_double_mut --
+		Statistics: 0.05820855000871991
+		p-value: 0.953582510349677
+		The null hypothesis cannot be rejected
+	-- apfd_reduce_75_50_double_mut vs. apfd_reduce_75_75_double_mut --
+		Statistics: 0.048507125007266595
+		p-value: 0.9613120861932752
+		The null hypothesis cannot be rejected
+	-- apfd_reduce_75_50_double_mut vs. auc_complete_double_mut --
+		Statistics: -0.019402850002906636
+		p-value: 0.984519736863829
+		The null hypothesis cannot be rejected
+	-- apfd_reduce_75_50_double_mut vs. auc_complete_single_mut --
+		Statistics: 0.1067156750159865
+		p-value: 0.9150145467572699
+		The null hypothesis cannot be rejected
+	-- apfd_reduce_75_50_double_mut vs. auc_reduce_50_100_double_mut --
+		Statistics: 0.06790997501017323
+		p-value: 0.9458572981765897
+		The null hypothesis cannot be rejected
+	-- apfd_reduce_75_50_double_mut vs. auc_reduce_75_100_double_mut --
+		Statistics: -0.048507125007266595
+		p-value: 0.9613120861932752
+		The null hypothesis cannot be rejected
+	-- apfd_reduce_75_50_double_mut vs. auc_reduce_75_50_double_mut --
+		Statistics: -0.029104275004359956
+		p-value: 0.9767814262832161
+		The null hypothesis cannot be rejected
+	-- apfd_reduce_75_50_double_mut vs. auc_reduce_75_75_double_mut --
+		Statistics: -0.06790997501017323
+		p-value: 0.9458572981765897
+		The null hypothesis cannot be rejected
+	-- apfd_reduce_75_75_double_mut vs. auc_complete_double_mut --
+		Statistics: -0.1067156750159865
+		p-value: 0.9150145467572699
+		The null hypothesis cannot be rejected
+	-- apfd_reduce_75_75_double_mut vs. auc_complete_single_mut --
+		Statistics: 0.06790997501017323
+		p-value: 0.9458572981765897
+		The null hypothesis cannot be rejected
+	-- apfd_reduce_75_75_double_mut vs. auc_reduce_50_100_double_mut --
+		Statistics: 0.07761140001162654
+		p-value: 0.93813717383897
+		The null hypothesis cannot be rejected
+	-- apfd_reduce_75_75_double_mut vs. auc_reduce_75_100_double_mut --
+		Statistics: -0.08731282501307987
+		p-value: 0.9304228600674964
+		The null hypothesis cannot be rejected
+	-- apfd_reduce_75_75_double_mut vs. auc_reduce_75_50_double_mut --
+		Statistics: -0.11641710001743982
+		p-value: 0.9073219836857066
+		The null hypothesis cannot be rejected
+	-- apfd_reduce_75_75_double_mut vs. auc_reduce_75_75_double_mut --
+		Statistics: -0.12611852501889315
+		p-value: 0.899638103712954
+		The null hypothesis cannot be rejected
+	-- auc_complete_double_mut vs. auc_complete_single_mut --
+		Statistics: 0.13581995002034647
+		p-value: 0.8919636193705659
+		The null hypothesis cannot be rejected
+	-- auc_complete_double_mut vs. auc_reduce_50_100_double_mut --
+		Statistics: 0.1552228000232531
+		p-value: 0.876645674312776
+		The null hypothesis cannot be rejected
+	-- auc_complete_double_mut vs. auc_reduce_75_100_double_mut --
+		Statistics: 0.0
+		p-value: 1.0
+		The null hypothesis cannot be rejected
+	-- auc_complete_double_mut vs. auc_reduce_75_50_double_mut --
+		Statistics: -0.029104275004359956
+		p-value: 0.9767814262832161
+		The null hypothesis cannot be rejected
+	-- auc_complete_double_mut vs. auc_reduce_75_75_double_mut --
+		Statistics: -0.009701425001453318
+		p-value: 0.992259504193286
+		The null hypothesis cannot be rejected
+	-- auc_complete_single_mut vs. auc_reduce_50_100_double_mut --
+		Statistics: -0.019402850002906636
+		p-value: 0.984519736863829
+		The null hypothesis cannot be rejected
+	-- auc_complete_single_mut vs. auc_reduce_75_100_double_mut --
+		Statistics: -0.13581995002034647
+		p-value: 0.8919636193705659
+		The null hypothesis cannot be rejected
+	-- auc_complete_single_mut vs. auc_reduce_75_50_double_mut --
+		Statistics: -0.1552228000232531
+		p-value: 0.876645674312776
+		The null hypothesis cannot be rejected
+	-- auc_complete_single_mut vs. auc_reduce_75_75_double_mut --
+		Statistics: -0.1552228000232531
+		p-value: 0.876645674312776
+		The null hypothesis cannot be rejected
+	-- auc_reduce_50_100_double_mut vs. auc_reduce_75_100_double_mut --
+		Statistics: -0.1552228000232531
+		p-value: 0.876645674312776
+		The null hypothesis cannot be rejected
+	-- auc_reduce_50_100_double_mut vs. auc_reduce_75_50_double_mut --
+		Statistics: -0.12611852501889315
+		p-value: 0.899638103712954
+		The null hypothesis cannot be rejected
+	-- auc_reduce_50_100_double_mut vs. auc_reduce_75_75_double_mut --
+		Statistics: -0.1455213750217998
+		p-value: 0.8842992405514215
+		The null hypothesis cannot be rejected
+	-- auc_reduce_75_100_double_mut vs. auc_reduce_75_50_double_mut --
+		Statistics: -0.048507125007266595
+		p-value: 0.9613120861932752
+		The null hypothesis cannot be rejected
+	-- auc_reduce_75_100_double_mut vs. auc_reduce_75_75_double_mut --
+		Statistics: -0.048507125007266595
+		p-value: 0.9613120861932752
+		The null hypothesis cannot be rejected
+	-- auc_reduce_75_50_double_mut vs. auc_reduce_75_75_double_mut --
+		Statistics: 0.0
+		p-value: 1.0
+		The null hypothesis cannot be rejected
+
+== Cliff's Delta (pairwise comparisons) ==
+	-- apfd_complete_double_mut vs. apfd_complete_single_mut --
+		Effect size: negligible
+		p-value: 0.0
+	-- apfd_complete_double_mut vs. apfd_reduce_50_100_double_mut --
+		Effect size: negligible
+		p-value: -0.008
+	-- apfd_complete_double_mut vs. apfd_reduce_75_100_double_mut --
+		Effect size: negligible
+		p-value: -0.0304
+	-- apfd_complete_double_mut vs. apfd_reduce_75_50_double_mut --
+		Effect size: negligible
+		p-value: -0.008
+	-- apfd_complete_double_mut vs. apfd_reduce_75_75_double_mut --
+		Effect size: negligible
+		p-value: 0.0
+	-- apfd_complete_double_mut vs. auc_complete_double_mut --
+		Effect size: negligible
+		p-value: -0.0112
+	-- apfd_complete_double_mut vs. auc_complete_single_mut --
+		Effect size: negligible
+		p-value: 0.008
+	-- apfd_complete_double_mut vs. auc_reduce_50_100_double_mut --
+		Effect size: negligible
+		p-value: 0.0048
+	-- apfd_complete_double_mut vs. auc_reduce_75_100_double_mut --
+		Effect size: negligible
+		p-value: -0.0144
+	-- apfd_complete_double_mut vs. auc_reduce_75_50_double_mut --
+		Effect size: negligible
+		p-value: -0.016
+	-- apfd_complete_double_mut vs. auc_reduce_75_75_double_mut --
+		Effect size: negligible
+		p-value: -0.0176
+	-- apfd_complete_single_mut vs. apfd_reduce_50_100_double_mut --
+		Effect size: negligible
+		p-value: -0.008
+	-- apfd_complete_single_mut vs. apfd_reduce_75_100_double_mut --
+		Effect size: negligible
+		p-value: -0.0304
+	-- apfd_complete_single_mut vs. apfd_reduce_75_50_double_mut --
+		Effect size: negligible
+		p-value: -0.008
+	-- apfd_complete_single_mut vs. apfd_reduce_75_75_double_mut --
+		Effect size: negligible
+		p-value: -0.0096
+	-- apfd_complete_single_mut vs. auc_complete_double_mut --
+		Effect size: negligible
+		p-value: -0.0176
+	-- apfd_complete_single_mut vs. auc_complete_single_mut --
+		Effect size: negligible
+		p-value: 0.0064
+	-- apfd_complete_single_mut vs. auc_reduce_50_100_double_mut --
+		Effect size: negligible
+		p-value: 0.008
+	-- apfd_complete_single_mut vs. auc_reduce_75_100_double_mut --
+		Effect size: negligible
+		p-value: -0.0176
+	-- apfd_complete_single_mut vs. auc_reduce_75_50_double_mut --
+		Effect size: negligible
+		p-value: -0.016
+	-- apfd_complete_single_mut vs. auc_reduce_75_75_double_mut --
+		Effect size: negligible
+		p-value: -0.0304
+	-- apfd_reduce_50_100_double_mut vs. apfd_reduce_75_100_double_mut --
+		Effect size: negligible
+		p-value: -0.016
+	-- apfd_reduce_50_100_double_mut vs. apfd_reduce_75_50_double_mut --
+		Effect size: negligible
+		p-value: 0.0
+	-- apfd_reduce_50_100_double_mut vs. apfd_reduce_75_75_double_mut --
+		Effect size: negligible
+		p-value: 0.008
+	-- apfd_reduce_50_100_double_mut vs. auc_complete_double_mut --
+		Effect size: negligible
+		p-value: -0.0032
+	-- apfd_reduce_50_100_double_mut vs. auc_complete_single_mut --
+		Effect size: negligible
+		p-value: 0.0176
+	-- apfd_reduce_50_100_double_mut vs. auc_reduce_50_100_double_mut --
+		Effect size: negligible
+		p-value: 0.0112
+	-- apfd_reduce_50_100_double_mut vs. auc_reduce_75_100_double_mut --
+		Effect size: negligible
+		p-value: -0.008
+	-- apfd_reduce_50_100_double_mut vs. auc_reduce_75_50_double_mut --
+		Effect size: negligible
+		p-value: -0.0048
+	-- apfd_reduce_50_100_double_mut vs. auc_reduce_75_75_double_mut --
+		Effect size: negligible
+		p-value: -0.0112
+	-- apfd_reduce_75_100_double_mut vs. apfd_reduce_75_50_double_mut --
+		Effect size: negligible
+		p-value: 0.016
+	-- apfd_reduce_75_100_double_mut vs. apfd_reduce_75_75_double_mut --
+		Effect size: negligible
+		p-value: 0.0256
+	-- apfd_reduce_75_100_double_mut vs. auc_complete_double_mut --
+		Effect size: negligible
+		p-value: 0.008
+	-- apfd_reduce_75_100_double_mut vs. auc_complete_single_mut --
+		Effect size: negligible
+		p-value: 0.0384
+	-- apfd_reduce_75_100_double_mut vs. auc_reduce_50_100_double_mut --
+		Effect size: negligible
+		p-value: 0.0368
+	-- apfd_reduce_75_100_double_mut vs. auc_reduce_75_100_double_mut --
+		Effect size: negligible
+		p-value: 0.0096
+	-- apfd_reduce_75_100_double_mut vs. auc_reduce_75_50_double_mut --
+		Effect size: negligible
+		p-value: 0.0
+	-- apfd_reduce_75_100_double_mut vs. auc_reduce_75_75_double_mut --
+		Effect size: negligible
+		p-value: 0.0096
+	-- apfd_reduce_75_50_double_mut vs. apfd_reduce_75_75_double_mut --
+		Effect size: negligible
+		p-value: 0.008
+	-- apfd_reduce_75_50_double_mut vs. auc_complete_double_mut --
+		Effect size: negligible
+		p-value: -0.0032
+	-- apfd_reduce_75_50_double_mut vs. auc_complete_single_mut --
+		Effect size: negligible
+		p-value: 0.0176
+	-- apfd_reduce_75_50_double_mut vs. auc_reduce_50_100_double_mut --
+		Effect size: negligible
+		p-value: 0.0112
+	-- apfd_reduce_75_50_double_mut vs. auc_reduce_75_100_double_mut --
+		Effect size: negligible
+		p-value: -0.008
+	-- apfd_reduce_75_50_double_mut vs. auc_reduce_75_50_double_mut --
+		Effect size: negligible
+		p-value: -0.0048
+	-- apfd_reduce_75_50_double_mut vs. auc_reduce_75_75_double_mut --
+		Effect size: negligible
+		p-value: -0.0112
+	-- apfd_reduce_75_75_double_mut vs. auc_complete_double_mut --
+		Effect size: negligible
+		p-value: -0.0176
+	-- apfd_reduce_75_75_double_mut vs. auc_complete_single_mut --
+		Effect size: negligible
+		p-value: 0.0112
+	-- apfd_reduce_75_75_double_mut vs. auc_reduce_50_100_double_mut --
+		Effect size: negligible
+		p-value: 0.0128
+	-- apfd_reduce_75_75_double_mut vs. auc_reduce_75_100_double_mut --
+		Effect size: negligible
+		p-value: -0.0144
+	-- apfd_reduce_75_75_double_mut vs. auc_reduce_75_50_double_mut --
+		Effect size: negligible
+		p-value: -0.0192
+	-- apfd_reduce_75_75_double_mut vs. auc_reduce_75_75_double_mut --
+		Effect size: negligible
+		p-value: -0.0208
+	-- auc_complete_double_mut vs. auc_complete_single_mut --
+		Effect size: negligible
+		p-value: 0.0224
+	-- auc_complete_double_mut vs. auc_reduce_50_100_double_mut --
+		Effect size: negligible
+		p-value: 0.0256
+	-- auc_complete_double_mut vs. auc_reduce_75_100_double_mut --
+		Effect size: negligible
+		p-value: 0.0
+	-- auc_complete_double_mut vs. auc_reduce_75_50_double_mut --
+		Effect size: negligible
+		p-value: -0.0048
+	-- auc_complete_double_mut vs. auc_reduce_75_75_double_mut --
+		Effect size: negligible
+		p-value: -0.0016
+	-- auc_complete_single_mut vs. auc_reduce_50_100_double_mut --
+		Effect size: negligible
+		p-value: -0.0032
+	-- auc_complete_single_mut vs. auc_reduce_75_100_double_mut --
+		Effect size: negligible
+		p-value: -0.0224
+	-- auc_complete_single_mut vs. auc_reduce_75_50_double_mut --
+		Effect size: negligible
+		p-value: -0.0256
+	-- auc_complete_single_mut vs. auc_reduce_75_75_double_mut --
+		Effect size: negligible
+		p-value: -0.0256
+	-- auc_reduce_50_100_double_mut vs. auc_reduce_75_100_double_mut --
+		Effect size: negligible
+		p-value: -0.0256
+	-- auc_reduce_50_100_double_mut vs. auc_reduce_75_50_double_mut --
+		Effect size: negligible
+		p-value: -0.0208
+	-- auc_reduce_50_100_double_mut vs. auc_reduce_75_75_double_mut --
+		Effect size: negligible
+		p-value: -0.024
+	-- auc_reduce_75_100_double_mut vs. auc_reduce_75_50_double_mut --
+		Effect size: negligible
+		p-value: -0.008
+	-- auc_reduce_75_100_double_mut vs. auc_reduce_75_75_double_mut --
+		Effect size: negligible
+		p-value: -0.008
+	-- auc_reduce_75_50_double_mut vs. auc_reduce_75_75_double_mut --
+		Effect size: negligible
+		p-value: 0.0
