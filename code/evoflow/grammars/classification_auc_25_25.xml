@@ -1,0 +1,394 @@
+<grammar>
+    <!--  Root -->
+    <root-symbol>workflow</root-symbol>
+     
+    <!-- Terminals -->
+    <terminals>
+
+        <!-- PREPROCESSING -->
+
+        <!-- imputer -->
+
+        <terminal name="simpleImputer" type="imputer" code="sklearn.impute.SimpleImputer">
+            <hparam name="simp::strategy" type="categorical" values="mean;median;most_frequent" default="mean"/>
+        </terminal>
+
+        <terminal name="knnImputer" type="imputer" code="sklearn.impute.KNNImputer">
+            <hparam name="kimp::strategy" type="categorical" values="mean;median;most_frequent" default="mean"/>
+            <hparam name="kimp::weights" type="categorical" values="uniform;distance" default="uniform"/>
+            <hparam name="kimp::n_neighbors" type="uni_int" lower="2" upper="10" default="5"/>
+        </terminal>
+
+        <!-- scaler -->
+
+        <terminal name="minMaxScaler" type="scaler" code="sklearn.preprocessing.MinMaxScaler"/>
+
+        <terminal name="maxAbsScaler" type="scaler" code="sklearn.preprocessing.MaxAbsScaler"/>
+
+        <terminal name="robustScaler" type="scaler" code="sklearn.preprocessing.RobustScaler">
+            <hparam name="rs::with_centering" type="bool" default="True"/>
+            <hparam name="rs::with_scaling" type="bool" default="True"/>
+        </terminal>
+
+        <terminal name="standardScaler" type="scaler" code="sklearn.preprocessing.StandardScaler">
+            <hparam name="ss::with_mean" type="bool" default="True"/>
+            <hparam name="ss::with_std" type="bool" default="True"/>
+        </terminal>
+
+        <terminal name="normalizer" type="scaler" code="sklearn.preprocessing.Normalizer">
+            <hparam name="nor::norm" type="categorical" values="l1;l2;max" default="l2"/>
+        </terminal>
+
+        <!-- featureAumentation -->
+
+        <!--
+        <terminal name="polynomialFeatures" type="featureAumentation" code="sklearn.preprocessing.PolynomialFeatures">
+            <hparam name="pf::include_bias" type="bool" default="True"/>
+            <hparam name="pf::interaction_only" type="bool" default="False"/>
+        </terminal>
+        -->
+
+        <terminal name="nystroem" type="featureAumentation" code="sklearn.kernel_approximation.Nystroem">
+            <hparam name="nyss::kernel" type="categorical" values="rbf;cosine;sigmoid;poly" default="rbf"/>
+            <hparam name="nyss::gamma" type="uni_float" lower="3.0517578125e-05" upper="8" default="0.1" log="True"/>
+            <hparam name="nyss::n_components" type="uni_int" lower="10" upper="100" default="100"/>
+            <hparam name="nyss::degree" type="uni_int" lower="2" upper="5" default="2"/>
+            <hparam name="nyss::coef0" type="uni_float" lower="-1" upper="1" default="0"/>
+        </terminal>
+
+        <terminal name="rbfSampler" type="featureAumentation" code="sklearn.kernel_approximation.RBFSampler">
+            <hparam name="rbf::gamma" type="uni_float" lower="1e-3" upper="1.0" default="0.5" log="True"/>
+            <hparam name="rbf::n_components" type="uni_int" lower="10" upper="100" default="100"/>
+        </terminal>
+
+        <!-- featureSelection -->
+
+        <terminal name="varianceThreshold" type="featureSelection" code="sklearn.feature_selection.VarianceThreshold"/>
+
+        <terminal name="selectPercentile" type="featureSelection" code="sklearn.feature_selection.SelectPercentile">
+            <hparam name="sp::percentile" type="uni_float" lower="1" upper="99" default="50"/>
+        </terminal>
+
+        <terminal name="selectFwe" type="featureSelection" code="sklearn.feature_selection.SelectFwe">
+            <hparam name="fwe::alpha" type="uni_float" lower="1e-3" upper="0.05" default="0.01" log="True"/>
+        </terminal>
+
+        <!-- featureExtraction -->
+
+        <terminal name="featureAgglomeration" type="featureExtraction" code="sklearn.cluster.FeatureAgglomeration">
+            <hparam name="fagg::n_clusters" type="uni_int" lower="2" upper="25" default="25"/>
+            <hparam name="fagg::affinity" type="categorical" values="euclidean;manhattan;cosine" default="euclidean"/>
+            <hparam name="fagg::linkage" type="categorical" values="ward;complete;average" default="ward"/>
+        </terminal>
+
+        <terminal name="pca" type="featureExtraction" code="sklearn.decomposition.PCA">
+            <hparam name="pca::n_components" type="uni_float" lower="0.5" upper="0.9999" default="0.9999"/>
+            <hparam name="pca::whiten" type="bool" default="False"/>
+        </terminal>
+       
+        <terminal name="fastICA" type="featureExtraction" code="sklearn.decomposition.FastICA">
+            <hparam name="ica::n_components" type="uni_int" lower="2" upper="100" default="3"/>
+            <hparam name="ica::algorithm" type="categorical" values="parallel;deflation" default="parallel"/>
+            <hparam name="ica::whiten" type="bool" default="False"/>
+            <hparam name="ica::fun" type="categorical" values="logcosh;exp;cube" default="logcosh"/>
+            <hparam name="ica::max_iter" type="fix_int" value="400"/>
+        </terminal>
+
+        <terminal name="truncatedSVD" type="featureExtraction" code="sklearn.decomposition.TruncatedSVD">
+            <hparam name="trun::target_dim" type="uni_int" lower="10" upper="256" default="0.5" log="True"/>
+            <hparam name="trun::algorithm" type="categorical" values="arpack;randomized" default="randomized"/>
+        </terminal>    
+
+        <!-- balance -->
+
+        <terminal name="randomOverSampler" type="balance" code="imblearn.over_sampling.RandomOverSampler">
+            <hparam name="ras::sampling_strategy" type="categorical" values="minority;not minority;not majority" default="not majority"/>
+        </terminal>
+
+        <terminal name="randomUnderSampler" type="balance" code="imblearn.under_sampling.RandomUnderSampler">
+            <hparam name="rus::sampling_strategy" type="categorical" values="minority;not minority;not majority" default="not majority"/>
+            <hparam name="rus::replacement" type="bool" default="False"/>
+        </terminal>
+
+        <terminal name="smote" type="balance" code="imblearn.over_sampling.SMOTE">
+            <hparam name="smote::sampling_strategy" type="categorical" values="minority;not minority;not majority" default="not majority"/>
+            <hparam name="smote::k_neighbors" type="uni_int" lower="2" upper="5" default="5"/>
+        </terminal>
+
+        <terminal name="smoteTomek" type="balance" code="imblearn.combine.SMOTETomek">
+            <hparam name="smoteT::sampling_strategy" type="categorical" values="minority;not minority;not majority" default="not majority"/>
+        </terminal>
+
+
+        <!-- CLASSIFIERS --> 
+
+        <!-- tree -->
+
+        <terminal name="decisionTree" type="tree" code="sklearn.tree.DecisionTreeClassifier">
+            <hparam name="dt::criterion" type="categorical" values="gini;entropy" default="gini"/>
+            <hparam name="dt::max_depth" type="uni_float" lower="0" upper="2" default="0.5"/>
+            <hparam name="dt::min_samples_split" type="uni_int" lower="2" upper="20" default="2"/>
+            <hparam name="dt::max_features" type="uni_float" lower="0" upper="1" default="0.5"/>
+            <hparam name="dt::min_samples_leaf" type="uni_int" lower="1" upper="20" default="1"/>
+            <hparam name="dt::class_weight" type="categorical" values="balanced" default="None"/>
+        </terminal>
+
+        <!-- ensemble -->
+
+        <terminal name="randomForest" type="tree" code="sklearn.ensemble.RandomForestClassifier">
+            <hparam name="rf::n_estimators" type="uni_int" lower="10" upper="100" default="100"/>
+            <hparam name="rf::criterion" type="categorical" values="gini;entropy" default="gini"/>
+            <hparam name="rf::max_features" type="categorical" values="sqrt;log2" default="sqrt"/>
+            <hparam name="rf::min_samples_split" type="uni_int" lower="2" upper="20" default="2"/>
+            <hparam name="rf::min_samples_leaf" type="uni_int" lower="1" upper="20" default="1"/>
+            <hparam name="rf::bootstrap" type="bool" default="True"/>
+            <hparam name="rf::class_weight" type="categorical" values="balanced;balanced_subsample" default="None"/>
+        </terminal>
+
+        <terminal name="extraTreesClassifier" type="tree" code="sklearn.ensemble.ExtraTreesClassifier">
+            <hparam name="etc::n_estimators" type="uni_int" lower="10" upper="100" default="100"/>
+            <hparam name="etc::criterion" type="categorical" values="gini;entropy" default="gini"/>
+            <hparam name="etc::max_features" type="categorical" values="sqrt;log2" default="sqrt"/>
+            <hparam name="etc::min_samples_split" type="uni_int" lower="2" upper="20" default="2"/>
+            <hparam name="etc::min_samples_leaf" type="uni_int" lower="1" upper="20" default="1"/>
+            <hparam name="etc::bootstrap" type="bool" default="False"/>
+            <hparam name="etc::class_weight" type="categorical" values="balanced;balanced_subsample" default="None"/>
+        </terminal>
+        
+        <terminal name="adaBoost" type="ensemble" code="sklearn.ensemble.AdaBoostClassifier">
+            <hparam name="ada::n_estimators" type="uni_int" lower="10" upper="100" default="50"/>
+            <hparam name="ada::learning_rate" type="uni_float" lower="0.01" upper="2" default="0.1" log="True"/>
+            <hparam name="ada::algorithm" type="categorical" values="SAMME.R;SAMME" default="SAMME.R"/>
+            <hparam name="ada::max_depth" type="uni_int" lower="1" upper="10" default="1"/>
+        </terminal>
+
+        <!--<terminal name="easyEnsemble" type="ensemble" code="imblearn.ensemble.EasyEnsembleClassifier">
+            <hparam name="eec::n_estimators" type="uni_int" lower="10" upper="100" default="50"/>
+            <hparam name="eec::sampling_strategy" type="categorical" values="majority;not majority;not minority;all" default="not minority"/>
+            <hparam name="eec::replacement" type="bool" default="False"/>
+        </terminal>
+
+        <terminal name="rusBoost" type="ensemble" code="imblearn.ensemble.RUSBoostClassifier">
+            <hparam name="rusb::n_estimators" type="uni_int" lower="10" upper="100" default="50"/>
+            <hparam name="rusb::learning_rate" type="uni_float" lower="0.01" upper="2" default="0.1" log="True"/>
+            <hparam name="rusb::algorithm" type="categorical" values="SAMME.R;SAMME" default="SAMME.R"/>
+            <hparam name="rusb::sampling_strategy" type="categorical" values="majority;not majority;not minority;all" default="not minority"/>
+            <hparam name="rusb::replacement" type="bool" default="False"/>
+        </terminal>
+
+        <terminal name="balancedBagging" type="ensemble" code="imblearn.ensemble.BalancedBaggingClassifier">
+            <hparam name="balbag::n_estimators" type="uni_int" lower="10" upper="100" default="50"/>
+            <hparam name="balbag::max_samples" type="uni_float" lower="0.01" upper="1.0" default="1.0" log="True"/>
+            <hparam name="balbag::max_features" type="uni_float" lower="0.01" upper="1.0" default="1.0" log="True"/>
+            <hparam name="balbag::bootstrap" type="bool" default="True"/>
+            <hparam name="balbag::bootstrap_features" type="bool" default="False"/>
+            <hparam name="balbag::oob_score" type="bool" default="False"/>
+            <hparam name="balbag::sampling_strategy" type="categorical" values="majority;not majority;not minority;all" default="not minority"/>
+            <hparam name="balbag::replacement" type="bool" default="False"/>
+        </terminal>-->
+
+        <terminal name="balancedRandomForest" type="tree" code="imblearn.ensemble.BalancedRandomForestClassifier">
+            <hparam name="brf::n_estimators" type="uni_int" lower="10" upper="100" default="100"/>
+            <hparam name="brf::criterion" type="categorical" values="gini;entropy" default="gini"/>
+            <hparam name="brf::max_depth" type="uni_int" lower="1" upper="10" default="None"/>
+            <hparam name="brf::min_samples_split" type="uni_int" lower="2" upper="20" default="2"/>
+            <hparam name="brf::min_samples_leaf" type="uni_int" lower="1" upper="20" default="1"/>
+            <hparam name="brf::max_features" type="categorical" values="sqrt;log2" default="sqrt"/>
+            <hparam name="brf::bootstrap" type="bool" default="True"/>
+            <hparam name="brf::oob_score" type="bool" default="False"/>
+            <hparam name="brf::sampling_strategy" type="categorical" values="majority;not majority;not minority;all" default="not minority"/>
+            <hparam name="brf::replacement" type="bool" default="False"/>
+            <hparam name="brf::class_weight" type="categorical" values="balanced;balanced_subsample" default="None"/>
+            <hparam name="brf::max_samples" type="uni_float" lower="0.01" upper="1.0" default="1.0" log="True"/>
+        </terminal>
+
+        <terminal name="xgboost" type="ensemble" code="xgboost.XGBClassifier">
+            <hparam name="xgb::n_estimators" type="uni_int" lower="10" upper="100" default="100"/>
+            <hparam name="xgb::max_depth" type="uni_int" lower="1" upper="10" default="3"/>
+            <hparam name="xgb::learning_rate" type="uni_float" lower="0.01" upper="2" default="0.1" log="True"/>
+            <hparam name="xgb::max_leaves" type="uni_int" lower="0" upper="100" default="0"/>
+            <hparam name="xgb::grow_policy" type="categorical" values="depthwise;lossguide" default="depthwise"/>
+        </terminal>
+
+        <!-- neighbors -->
+
+        <terminal name="kNN" type="neighbors" code="sklearn.neighbors.KNeighborsClassifier">
+            <hparam name="knn::n_neighbors" type="uni_int" lower="1" upper="50" default="1" log="True"/>
+            <hparam name="knn::weights" type="categorical" values="uniform;distance" default="uniform"/>
+            <hparam name="knn::p" type="uni_int" lower="1" upper="2" default="2"/>
+        </terminal>
+
+        <!-- bayes -->
+
+        <terminal name="gaussianNB" type="bayes" code="sklearn.naive_bayes.GaussianNB">
+            <hparam name="gau::var_smoothing" type="uni_float" lower="1e-9" upper="1e-2" default="1e-9" log="True"/>
+        </terminal>
+
+        <terminal name="bernoulliNB" type="bayes" code="sklearn.naive_bayes.BernoulliNB">
+            <hparam name="ber::alpha" type="uni_float" lower="1e-2" upper="100" default="1" log="True"/>
+            <hparam name="ber::fit_prior" type="bool" default="True"/>
+        </terminal>
+
+        <terminal name="multinomialNB" type="bayes" code="sklearn.naive_bayes.MultinomialNB">
+            <hparam name="mnb::alpha" type="uni_float" lower="1e-2" upper="100" default="1" log="True"/>
+            <hparam name="mnb::fit_prior" type="bool" default="True"/>
+        </terminal>
+
+        <!-- linear -->
+
+        <terminal name="logisticRegression" type="linear" code="sklearn.linear_model.LogisticRegression">
+            <hparam name="lr::penalty" type="categorical" values="l1;l2;none" default="l2"/>
+            <hparam name="lr::solver" type="categorical" values="lbfgs;liblinear;newton-cg;sag;saga" default="lbfgs"/>
+            <hparam name="lr::max_iter" type="fix_int" value="1000"/>
+            <hparam name="lr::C" type="uni_float" lower="1e-4" upper="25" default="1" log="True"/>
+            <hparam name="lr::class_weight" type="categorical" values="balanced" default="None"/>
+        </terminal>
+
+        <terminal name="sgdClassifier" type="linear" code="sklearn.linear_model.SGDClassifier">
+            <!--<hparam name="sgd::loss" type="categorical" values="log;hinge;modified_huber;squared_hinge;perceptron" default="log"/>-->
+            <hparam name="sgd::loss" type="categorical" values="log_loss;modified_huber" default="log_loss"/>
+            <hparam name="sgd::alpha" type="uni_float" lower="1e-7" upper="1e-1" default="0.0001" log="True"/>
+            <hparam name="sgd::l1_ratio" type="uni_float" lower="1e-9" upper="1" default="0.15" log="True"/>
+            <hparam name="sgd::tol" type="uni_float" lower="1e-5" upper="1e-1" default="1e-4" log="True"/>
+            <hparam name="sgd::epsilon" type="uni_float" lower="1e-5" upper="1e-1" default="1e-4" log="True"/>
+            <hparam name="sgd::eta0" type="uni_float" lower="1e-7" upper="1e-1" default="0.01" log="True"/>
+            <hparam name="sgd::power_t" type="uni_float" lower="1e-5" upper="1" default="0.5"/>
+            <hparam name="sgd::average" type="bool" default="False"/>
+            <hparam name="sgd::class_weight" type="categorical" values="balanced" default="None"/>
+        </terminal>
+
+        <!--<terminal name="passiveAggressiveClassifier" type="linear" code="sklearn.linear_model.PassiveAggressiveClassifier">
+            <hparam name="pass::fit_intercept" type="bool" default="True"/>
+            <hparam name="pass::loss" type="categorical" values="hinge;squared_hinge" default="hinge"/>
+            <hparam name="pass::C" type="uni_float" lower="1e-5" upper="10" default="1" log="True"/>
+        </terminal>-->
+
+        <!-- svm -->
+
+        <!--<terminal name="linearSvc" type="linear" code="sklearn.svm.LinearSVC">
+            <hparam name="lsvc::penalty" type="categorical" values="l1;l2" default="l2"/>
+            <hparam name="lsvc::loss" type="categorical" values="hinge;squared_hinge" default="squared_hinge"/>
+            <hparam name="lsvc::dual" type="bool" default="True"/>
+            <hparam name="lsvc::tol" type="uni_float" lower="1e-5" upper="1e-1" default="1e-4" log="True"/>
+            <hparam name="lsvc::C" type="uni_float" lower="1e-4" upper="25" default="1" log="True"/>
+            <hparam name="lsvc::class_weight" type="categorical" values="balanced" default="None"/>
+        </terminal>-->
+
+        <terminal name="svc" type="linear" code="sklearn.svm.SVC">
+            <hparam name="svc::C" type="uni_float" lower="1e-4" upper="25" default="1" log="True"/>
+            <hparam name="svc::kernel" type="categorical" values="linear;poly;rbf;sigmoid" default="rbf"/>
+            <hparam name="svc::degree" type="uni_int" lower="1" upper="10" default="3"/>
+            <hparam name="svc::gamma" type="uni_float" lower="1e-3" upper="1.0" default="0.5" log="True"/>
+            <hparam name="svc::coef0" type="uni_float" lower="-1" upper="1" default="0"/>
+            <hparam name="svc::probability" type="fix_bool" value="True"/>
+            <hparam name="svc::tol" type="uni_float" lower="1e-5" upper="1e-1" default="1e-3" log="True"/>
+            <hparam name="svc::class_weight" type="categorical" values="balanced" default="None"/>
+        </terminal>
+
+        <!-- discriminant -->
+
+        <terminal name="qda" type="discriminant" code="sklearn.discriminant_analysis.QuadraticDiscriminantAnalysis">
+            <hparam name="qda::reg_param" type="uni_float" lower="0.0" upper="1.0" default="0.0"/>
+        </terminal>
+
+        <terminal name="lda" type="discriminant" code="sklearn.discriminant_analysis.LinearDiscriminantAnalysis">
+            <hparam name="lda::shrinkage_factor" type="uni_float" lower="0.0" upper="1.0" default="0.5"/>
+            <hparam name="lda::n_components" type="uni_int" lower="1" upper="250" default="50"/>
+            <hparam name="lda::tol" type="uni_float" lower="1e-5" upper="1e-1" default="1e-4" log="True"/>
+        </terminal>
+
+        <!-- neural -->
+
+        <terminal name="mlpClassifier" type="neural" code="sklearn.neural_network.MLPClassifier">
+            <hparam name="mlp::alpha" type="uni_float" lower="1e-4" upper="1e-1" default="1e-2" log="True"/>
+            <hparam name="mlp::learning_rate_init" type="uni_float" lower="1e-3" upper="1.0" default="1e-2" log="True"/>
+            <hparam name="mlp::solver" type="categorical" values="lbfgs;sgd;adam" default="adam"/>
+            <hparam name="mlp::activation" type="categorical" values="identity;logistic;tanh;relu" default="relu"/>
+        </terminal>
+
+    </terminals>
+     
+    <!-- Non terminals: are represented as production rules -->
+    <non-terminals>
+ 
+        <!-- Structure definition -->
+        <non-terminal name="workflow">
+            <production-rule>classificationBranch</production-rule>
+        </non-terminal>
+         
+        <non-terminal name="classificationBranch">
+            <production-rule>classifier</production-rule>
+            <production-rule>preprocessingBranch;classifier</production-rule>
+        </non-terminal>
+
+        <non-terminal name="preprocessingBranch">
+            <production-rule>preprocess</production-rule>
+            <production-rule>preprocessingBranch;preprocess</production-rule>
+        </non-terminal>
+ 
+        <!-- Classifiers -->
+        <non-terminal name="classifier">
+            <!-- ensembles -->
+            <production-rule>randomForest;randomForest_hp</production-rule>
+            <production-rule>extraTreesClassifier;extraTreesClassifier_hp</production-rule>
+            <production-rule>adaBoost;adaBoost_hp</production-rule>
+            <!--<production-rule>easyEnsemble;easyEnsemble_hp</production-rule>
+            <production-rule>rusBoost;rusBoost_hp</production-rule>
+            <production-rule>balancedBagging;balancedBagging_hp</production-rule>-->
+            <production-rule>balancedRandomForest;balancedRandomForest_hp</production-rule>
+            <!--<production-rule>xgboost;xgboost_hp</production-rule>-->
+            <!-- discriminant -->
+            <production-rule>qda;qda_hp</production-rule>
+            <!--<production-rule>lda;lda_hp</production-rule>-->
+            <!-- naive bayes -->
+            <!--<production-rule>gaussianNB;gaussianNB_hp</production-rule>
+            <production-rule>bernoulliNB;bernoulliNB_hp</production-rule>
+            <production-rule>multinomialNB;multinomialNB_hp</production-rule>-->
+            <!-- linear -->
+            <production-rule>logisticRegression;logisticRegression_hp</production-rule>
+            <!--<production-rule>sgdClassifier;sgdClassifier_hp</production-rule>-->
+            <!--<production-rule>passiveAggressiveClassifier;passiveAggressiveClassifier_hp</production-rule>-->
+            <!-- svm -->
+            <!--<production-rule>linearSvc;linearSvc_hp</production-rule>-->
+            <production-rule>svc;svc_hp</production-rule>
+            <!-- neural -->
+            <production-rule>mlpClassifier;mlpClassifier_hp</production-rule>
+            <!-- neighbors -->
+            <production-rule>kNN;kNN_hp</production-rule>
+            <!-- tree -->
+            <!--<production-rule>decisionTree;decisionTree_hp</production-rule>-->
+        </non-terminal>
+
+        <!-- Preprocessing -->
+        <non-terminal name="preprocess">
+            <!-- feature selection-->
+            <production-rule>selectPercentile;selectPercentile_hp</production-rule>
+            <!--<production-rule>selectFwe;selectFwe_hp</production-rule>-->
+            <production-rule>varianceThreshold</production-rule>
+            <!-- scaler -->
+            <production-rule>minMaxScaler</production-rule>
+            <production-rule>maxAbsScaler</production-rule>
+            <production-rule>standardScaler;standardScaler_hp</production-rule>
+            <production-rule>robustScaler;robustScaler_hp</production-rule>
+            <production-rule>normalizer;normalizer_hp</production-rule>
+            <!-- feature extraction -->
+            <!--<production-rule>truncatedSVD;truncatedSVD_hp</production-rule>
+            <production-rule>pca;pca_hp</production-rule>-->
+            <production-rule>fastICA;fastICA_hp</production-rule>
+            <!--<production-rule>featureAgglomeration;featureAgglomeration_hp</production-rule>-->
+            <!-- feature aumentation -->
+            <production-rule>nystroem;nystroem_hp</production-rule>
+            <!--<production-rule>rbfSampler;rbfSampler_hp</production-rule>-->
+            <!--<production-rule>polynomialFeatures;polynomialFeatures_hp</production-rule>-->
+            <!-- imputation -->
+            <!--<production-rule>simpleImputer;simpleImputer_hp</production-rule>
+            <production-rule>knnImputer;knnImputer_hp</production-rule>-->
+            <!-- balance -->
+            <production-rule>randomOverSampler;randomOverSampler_hp</production-rule>
+            <production-rule>randomUnderSampler;randomUnderSampler_hp</production-rule>
+            <production-rule>smote;smote_hp</production-rule>
+            <production-rule>smoteTomek;smoteTomek_hp</production-rule>
+        </non-terminal>
+
+    </non-terminals>
+</grammar>
