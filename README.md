@@ -25,6 +25,38 @@ We use the TCP dataset provided by Yaraghi et al. in their paper: ["Scalable and
 
 The directory [grammar](/grammar) includes the full specification of the context-free grammar used by our grammar-guided genetic programming algorithm to produce ML workflows. The reduced grammars applied in the experiment to address RQ1 are also included.
 
+### Code
+
+The directory [code][/code] includes all the code used to conduct the experiments. To run the code, please install the packages listed in the `requirements.txt` file. To do so, go to the root folder of the repository and run the following commands:
+
+```bash
+cd code
+pip install -r requirements.txt
+```
+
+Then, please download the datasets and preprocess them. First, download the datasets from the link provided above, create a folder called `datasets` in the root directory of the repository, and place the datasets zip file there. Then, run the following commands:
+
+```bash
+cd datasets
+tar -xvf <name_of_the_downloaded_file>
+```
+
+To preprocess the datasets, locate the `data_tse_tcp.py` file in the `code/dataset` folder. Open the file and modify the `repo_name` variable to point to the dataset folder of the project you want to preprocess. Then, run the following commands:
+
+```bash
+cd code/dataset
+python3 data_tse_tcp.py
+```
+
+Repeat this process for each project in the dataset you want to preprocess. Finally, to run experiments, locate the `run_experiments.py` file in the `code` folder. Open the file and configure the settings of the experiment you want to run. Then, run the following commands:
+
+```bash
+cd code
+nohup python3 run_experiments.py > output.log &
+```
+
+This will run the experiment in the background and save the output to a file called `output.log`. The results will be saved in the folder configured in the `run_experiments.py` file.
+
 #### Results
 
 The directory [results](/results) includes the detailed results obtained by our proposed method (AutoTCP), divided into three research questions:
